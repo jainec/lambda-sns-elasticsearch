@@ -5,12 +5,12 @@ var elasticsearch = require('./elastic/elastic');
 elasticsearch.initIndex();
 
 exports.handler = function(event) {
-        var message = event.Records[0].Sns.Message;
-        console.log('Message received from SNS:', message);
+    var message = event.Records[0].Sns.Message;
+    console.log('Message received from SNS:', message);
 
-        elasticsearch.addDocument(JSON.parse(message));
+    elasticsearch.addDocument(JSON.parse(message));
 
-        console.log('Document added to elastic');
+    console.log('Document added to elastic');
 
-        return 'Success';
-    };
+    return 'Success';
+};
